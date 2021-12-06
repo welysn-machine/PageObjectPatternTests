@@ -16,6 +16,7 @@ Feature: User as a client is able to use Login page functionalities
 
 
  Scenario: User is able to create new account
-       Given User clicks on get started button on Login Page
+       Given User is on Login Page
+       Then  User clicks on get started button
        When  User fills in email, phone number, create password, and confirm password input fields properly
-       Then  User is able to see Main Page
+       Then  User is able to see Submit Button
