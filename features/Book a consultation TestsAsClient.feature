@@ -13,8 +13,8 @@ Feature: User as a client is able to book a consultation
     Given User is on a Book A Consultation Page
     When  User is able to see list with available therapists
     When  Clicks on filter menu
-    Then  is able to personalize his expectations
-    Then  is not able to sees list with available therapists
+    Then  User choose Fears & Phobias in Select button 'Why'
+    Then  User doesn't see any available therapists
 
 
 
