@@ -1,15 +1,14 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.select import Select
-from selenium.webdriver.support.wait import WebDriverWait
-from webdriver_manager import driver
-from selenium.webdriver.support import expected_conditions as ES
 
-class BookAConsultationPage:
+from pages.login_page import LoginPage
+
+
+class BookAConsultationPage(LoginPage):
 
     def __init__(self, context):
+        super().__init__(context)
         self.driver = context.driver
 
-        self.book_a_consultation_button_from_left_menu = (By.XPATH, "//span[text()='Book a consultation']")
         self.book_button_list_of_available_therapists = (By.XPATH, "//span[text()='Book now']")
         self.length_of_consultation_input_radio_button = (By.ID, "standard")
         self.available_dates = (By.CSS_SELECTOR, "div[data-date='20211231']")
@@ -18,18 +17,17 @@ class BookAConsultationPage:
         self.confirmation_page = (
             By.XPATH, "//span[text()='BOOK']")
         self.available_therapists_information = (By.CSS_SELECTOR, "img[alt= 'Profile image']")
-        self.filer_option = (By.CLASS_NAME, "therapist-filter-trigger")
-        self.why_button_from_filter_menu = (By.XPATH, "/html/body/div[3]/div[3]/div/div[3]/div/div[2]/div")
+        self.filter_option = (By.XPATH, "//span[text()='Filters']")
+        self.need_help_with_select_filter_options = (
+            By.XPATH, "/html/body/div[3]/div[3]/form/div/div[1]/div[3]/div/div/div/div/div[1]")
         self.fears_and_phobias_select_option = (By.XPATH, "//div[text()='Fears & Phobias']")
-        self.update_filter_button = (By.XPATH, "//button[text()='UPDATE']")
-        self.no_matches_therapist_information = (By.XPATH,'//h3[text()= "No matches found. Please change your search criteria."]')
-        self.clear_all_button_from_filter_menu = (
-            By.CLASS_NAME, "label therapist-filter__clear-all therapist-filter__label")
+        self.update_filter_button = (By.XPATH, "//span[text()='Update']")
+        self.fears_and_phobias_button = (By.XPATH, "//span[text()='Fears & Phobias']")
 
-    def clicking_book_a_consultation_button(self):
-        self.driver.find_element(*self.book_a_consultation_button_from_left_menu).click()
+        self.twillio_popup = (By.CLASS_NAME, 'Twilio-Icon-Content')
 
     def clicking_book_button_available_therapist(self):
+        self.driver.find_element(*self.twillio_popup).click()
         self.driver.find_element(*self.book_button_list_of_available_therapists).click()
 
     def choosing_payment_consultation_type_and_length(self):
@@ -45,16 +43,15 @@ class BookAConsultationPage:
     def confirming_consultation_is_displayed(self):
         return self.driver.find_element(*self.confirmation_page).is_displayed()
 
-
-
     def clicking_filter_button(self):
-        self.driver.find_element(*self.filer_option).click()
+        self.driver.find_element(*self.filter_option).click()
 
-    def select_filter_options(self):
-        self.driver.find_element(*self.why_button_from_filter_menu).click()
+    def select_filter_options(self, option):
+        self.driver.find_element(*self.need_help_with_select_filter_options).click()
         self.driver.find_element(*self.fears_and_phobias_select_option).click()
+
+    def clicking_update_button(self):
         self.driver.find_element(*self.update_filter_button).click()
 
-    def seeing_empty_list_therapists(self):
-        return self.driver.find_element(*self.no_matches_therapist_information).is_displayed()
-
+    def seeing_chosen_option(self):
+        return self.driver.find_element(*self.fears_and_phobias_button).is_displayed()

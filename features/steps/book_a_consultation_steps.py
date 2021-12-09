@@ -1,21 +1,26 @@
 from behave import given, when, then
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ES
+from selenium.webdriver.support.wait import WebDriverWait
+
 from pages.book_a_consultation_page import BookAConsultationPage
-from pages.my_account_page import MyAccountPage
+
+
+@given("User is logged in to his account")
+def logging_to_account(context):
+    page = BookAConsultationPage(context)
+    page.open_page()
+    page.log_in("jonathan+client@lysnhealth.com.au", "123lysn123")
 
 
 @given("User is on a Book A Consultation Page")
-def log_in_to_account(context):
-    page = MyAccountPage(context)
-    page.open_page()
-    page.log_in("jonathan+client@lysnhealth.com.au", "123lysn123")
+def clicking_book_a_consultation_button(context):
+    page = BookAConsultationPage(context)
+    page.clicking_book_a_consultation_button()
 
 
 @when("User choose available Therapist from list using book button")
 def choosing_available_therapist(context):
     page = BookAConsultationPage(context)
-    page.clicking_book_a_consultation_button()
     page.clicking_book_button_available_therapist()
 
 
@@ -46,21 +51,25 @@ def verifying_list_with_therapists(context):
     assert element
 
 
-
-
 @when("Clicks on filter menu")
 def clicking_filter_option(context):
     page = BookAConsultationPage(context)
     page.clicking_filter_button()
 
 
-@then("User choose Fears & Phobias in Select button 'Why'")
+@when("User choose Fears & Phobias in Select dropdown 'Need help with'")
 def setting_filter_parameters(context):
     page = BookAConsultationPage(context)
     page.select_filter_options("Fears & Phobias")
 
 
-@then("User doesn't see any available therapists")
+@when("User clicks Update button")
 def vefifying_empty_list_of_therapists(context):
     page = BookAConsultationPage(context)
-    assert page.seeing_empty_list_therapists()
+    page.clicking_update_button()
+
+
+@then("User is going back to Book a Consultation Page and is able to see selected Fears & Phobias")
+def seeing_chosen_Fears_and_Phobias_option(context):
+    page = BookAConsultationPage(context)
+    assert page.seeing_chosen_option()
