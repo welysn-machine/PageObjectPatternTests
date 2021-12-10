@@ -21,6 +21,7 @@ def clicking_book_a_consultation_button(context):
 @when("User choose available Therapist from list using book button")
 def choosing_available_therapist(context):
     page = BookAConsultationPage(context)
+    page.close_twillio_popup()
     page.clicking_book_button_available_therapist()
 
 

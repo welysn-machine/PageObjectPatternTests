@@ -7,7 +7,6 @@ from pages.signup_page import SignupPage
 def opening_signup_page(context):
     page = SignupPage(context)
     page.open_page()
-    page.get_started_button
 
 
 @then("User clicks on get started button")

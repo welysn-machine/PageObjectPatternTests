@@ -24,10 +24,7 @@ class BookAConsultationPage(LoginPage):
         self.update_filter_button = (By.XPATH, "//span[text()='Update']")
         self.fears_and_phobias_button = (By.XPATH, "//span[text()='Fears & Phobias']")
 
-        self.twillio_popup = (By.CLASS_NAME, 'Twilio-Icon-Content')
-
     def clicking_book_button_available_therapist(self):
-        self.driver.find_element(*self.twillio_popup).click()
         self.driver.find_element(*self.book_button_list_of_available_therapists).click()
 
     def choosing_payment_consultation_type_and_length(self):
