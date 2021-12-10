@@ -6,6 +6,7 @@ from pages.login_page import LoginPage
 class SignupPage(LoginPage):
 
     def __init__(self, context):
+        super().__init__(context)
         self.driver = context.driver
         # my account page elements
 

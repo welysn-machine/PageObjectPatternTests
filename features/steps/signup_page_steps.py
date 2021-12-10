@@ -1,6 +1,13 @@
-from behave import when, then
+from behave import given, when, then
 
 from pages.signup_page import SignupPage
+
+
+@given("User is on a Signup page")
+def opening_signup_page(context):
+    page = SignupPage(context)
+    page.open_page()
+    page.get_started_button
 
 
 @then("User clicks on get started button")
