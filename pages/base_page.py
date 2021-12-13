@@ -9,7 +9,7 @@ class BasePage:
         # left side menu locators
 
         self.dashboard_button = (By.XPATH, "//span[text()='Dashboard']")
-        self.book_a_consultation_button = (By.XPATH, "//span[text()='Book a consultation']")
+        self.book_consultation_button = (By.XPATH, "//span[text()='Book a consultation']")
         self.my_consultations_button = (By.XPATH, "//span[text()='My Consultations']")
         self.learning_centre_button = (By.XPATH, "//span[text()='Learning Centre']")
         self.assessments_button = (By.XPATH, "//span[text()='Assessments']")
@@ -30,44 +30,44 @@ class BasePage:
         except:
             pass
 
-    def clicking_book_a_consultation_button(self):
-        self.driver.find_element(*self.book_a_consultation_button).click()
+    def click_book_consultation_button(self):
+        self.driver.find_element(*self.book_consultation_button).click()
 
-    def clicking_my_consultations_button(self):
+    def click_my_consultations_button(self):
         self.driver.find_element(*self.my_consultations_button).click()
 
-    def clicking_dashboard_button(self):
+    def click_dashboard_button(self):
         self.driver.find_element(*self.dashboard_button).click()
 
-    def clicking_learning_centre_button(self):
+    def click_learning_centre_button(self):
         self.driver.find_element(*self.learning_centre_button).click()
 
-    def clicking_assessments_button(self):
+    def click_assessments_button(self):
         self.driver.find_element(*self.assessments_button).click()
 
-    def clicking_messages_button(self):
+    def click_messages_button(self):
         self.driver.find_element(*self.messages_button).click()
 
-    def clicking_wellbeing_tracker_button(self):
+    def click_wellbeing_tracker_button(self):
         self.driver.find_element(*self.wellbeing_tracker_button).click()
 
-    def clicking_my_account_button(self):
+    def click_my_account_button(self):
         self.driver.find_element(*self.my_account_button).click()
 
-    def clicking_settings_button(self):
+    def click_settings_button(self):
         self.driver.find_element(*self.settings_button).click()
 
-    def clicking_terms_and_conditions_button(self):
+    def click_terms_and_conditions_button(self):
         self.driver.find_element(*self.terms_and_conditions_button).click()
 
-    def clicking_logout_button(self):
+    def click_logout_button(self):
         self.driver.find_element(*self.logout_button).click()
 
-    def clicking_how_it_works_button(self):
+    def click_how_it_works_button(self):
         self.driver.find_element(*self.how_it_works_button).click()
 
-    def clicking_faq_button(self):
+    def click_faq_button(self):
         self.driver.find_element(*self.faq_button).click()
 
-    def is_welcome_tag_displayed(self):
+    def welcome_tag_displayed(self):
         return self.driver.find_element(*self.welcome_tag).is_displayed()

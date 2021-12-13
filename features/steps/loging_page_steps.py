@@ -12,7 +12,7 @@ def open_login_page(context):
 
 
 @when("User fills in password and email input fields with valid credentials")
-def log_in_to_account(context):
+def log_in_account(context):
     page = LoginPage(context)
     page.log_in("jonathan+client@lysnhealth.com.au", "123lysn123")
 

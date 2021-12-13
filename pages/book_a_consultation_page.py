@@ -25,36 +25,36 @@ class BookConsultationPage(LoginPage):
         self.update_filter_button = (By.XPATH, "//span[text()='Update']")
         self.fears_and_phobias_button = (By.XPATH, "//span[text()='Fears & Phobias']")
 
-    def clicking_book_button_available_therapist(self):
+    def click_book_button_available_therapist(self):
         self.driver.find_element(*self.book_button_list_of_available_therapists).click()
 
-    def choosing_payment_consultation_type_and_length(self):
+    def choose_payment_consultation_type_length(self):
         self.driver.find_element(*self.length_of_consultation_input_radio_button).click()
 
-    def setting_date_and_time(self):
+    def set_date_time(self):
         self.driver.find_element(*self.available_dates).click()
         self.driver.find_element(*self.available_time).click()
 
-    def booking_a_consultation(self):
+    def book_consultation(self):
         self.driver.find_element(*self.book_button_confirm_booking).click()
 
-    def confirming_consultation_is_displayed(self):
+    def confirm_consultation_displayed(self):
         return self.driver.find_element(*self.confirmation_page).is_displayed()
 
-    def clicking_filter_button(self):
+    def click_filter_button(self):
         self.driver.find_element(*self.filter_option).click()
 
     def select_filter_options(self):
         self.driver.find_element(*self.need_help_with_select_filter_options).click()
         self.driver.find_element(*self.fears_and_phobias_select_option).click()
 
-    def clicking_update_button(self):
+    def click_update_button(self):
         self.driver.find_element(*self.update_filter_button).click()
 
-    def seeing_chosen_option(self):
+    def see_chosen_option(self):
         return self.driver.find_element(*self.fears_and_phobias_button).is_displayed()
 
-    def is_available_therapist_information_displayed(self):
+    def available_therapist_information_displayed(self):
         wait = WebDriverWait(self.driver, 4)
         element = wait.until(ES.presence_of_element_located(self.available_therapists_information))
         return element.is_displayed()

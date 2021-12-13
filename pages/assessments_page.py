@@ -20,32 +20,32 @@ class AssessmentPage(LoginPage):
         self.book_now_button = (By.XPATH, "//span[text()='Book Now']")
         self.book_an_appointment_page = (By.ID, 'booking-app')
 
-    def clicking_begin_assessment_button_rcads_child(self):
+    def click_begin_assessment_button_rcads_child(self):
         self.driver.find_element(*self.begin_assessment_radio_button_rcads_child).click()
 
-    def clicking_i_worry_about_things_radio_button(self):
+    def click_worry_about_things_radio_button(self):
         self.driver.find_element(*self.worry_about_things_radio_button).click()
 
-    def clicking_feel_sad_or_empty_radio_button(self):
+    def click_feel_sad_or_empty_radio_button(self):
         self.driver.find_element(*self.feel_sad_or_empty_radio_button).click()
 
-    def clicking_nothing_is_fun_anymore_radio_button(self):
+    def click_nothing_is_fun_anymore_radio_button(self):
         self.driver.find_element(*self.nothing_is_fun_anymore_radio_button).click()
 
-    def clicking_have_trouble_sleeping_radio_button(self):
+    def click_have_trouble_sleeping_radio_button(self):
         self.driver.find_element(*self.have_trouble_sleeping_radio_button).click()
 
-    def clicking_problems_with_appetite_radio_button(self):
+    def click_problems_with_appetite_radio_button(self):
         self.driver.find_element(*self.problems_with_appetite_radio_button).click()
 
-    def clicking_send_assessment_radio_button(self):
+    def click_send_assessment_radio_button(self):
         self.driver.find_element(*self.send_assessment_radio_button).click()
 
-    def is_assessment_completed_snackbar_button_displayed(self):
+    def assessment_completed_snackbar_button_displayed(self):
         return self.driver.find_element(*self.assessment_completed_snackbar).is_displayed()
 
-    def clicking_book_now_button(self):
+    def click_book_now_button(self):
         self.driver.find_element(*self.book_now_button).click()
 
-    def is_book_an_appointment_page_displayed(self):
+    def book_an_appointment_page_displayed(self):
         return self.driver.find_element(*self.book_an_appointment_page).is_displayed()

@@ -19,25 +19,25 @@ class MyConsultationsPage(LoginPage):
         self.send_button = (By.CSS_SELECTOR, "button[type*='submit']")
         self.confirmation_popup = (By.XPATH, "//div[text()= 'Message sent.']")
 
-    def is_history_of_sessions_displayed(self):
+    def history_sessions_displayed(self):
         return self.driver.find_element(*self.history_of_sessions).is_displayed()
 
-    def clicking_on_first_position_in_history(self):
+    def click_first_position_history(self):
         self.driver.find_element(*self.first_position_in_history).click()
 
-    def is_consultation_details_page_displayed(self):
+    def consultation_details_page_displayed(self):
         return self.driver.find_element(*self.consultation_details_page).is_displayed()
 
-    def clicking_new_message_button(self):
+    def click_new_message_button(self):
         self.driver.find_element(*self.new_message_button).click()
 
-    def typing_a_message(self, message):
+    def type_message(self, message):
         self.driver.find_element(*self.text_message_area).send_keys(message)
 
-    def clicking_send_button(self):
+    def click_send_button(self):
         self.driver.find_element(*self.send_button).click()
 
-    def is_confirmation_popup_displayed(self):
+    def confirmation_popup_displayed(self):
         wait = WebDriverWait(self.driver, 8)
         element = wait.until(ES.presence_of_element_located(self.confirmation_popup))
         return element.is_displayed()
