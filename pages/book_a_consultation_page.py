@@ -1,9 +1,10 @@
 from selenium.webdriver.common.by import By
-
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ES
 from pages.login_page import LoginPage
 
 
-class BookAConsultationPage(LoginPage):
+class BookConsultationPage(LoginPage):
 
     def __init__(self, context):
         super().__init__(context)
@@ -43,7 +44,7 @@ class BookAConsultationPage(LoginPage):
     def clicking_filter_button(self):
         self.driver.find_element(*self.filter_option).click()
 
-    def select_filter_options(self, option):
+    def select_filter_options(self):
         self.driver.find_element(*self.need_help_with_select_filter_options).click()
         self.driver.find_element(*self.fears_and_phobias_select_option).click()
 
@@ -52,3 +53,8 @@ class BookAConsultationPage(LoginPage):
 
     def seeing_chosen_option(self):
         return self.driver.find_element(*self.fears_and_phobias_button).is_displayed()
+
+    def is_available_therapist_information_displayed(self):
+        wait = WebDriverWait(self.driver, 4)
+        element = wait.until(ES.presence_of_element_located(self.available_therapists_information))
+        return element.is_displayed()

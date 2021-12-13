@@ -4,7 +4,7 @@ from pages.signup_page import SignupPage
 
 
 @given("User is on a Signup page")
-def opening_signup_page(context):
+def open_signup_page(context):
     page = SignupPage(context)
     page.open_page()
 
@@ -16,7 +16,7 @@ def click_get_started_button(context):
 
 
 @when("User fills in email, phone number, create password, and confirm password input fields properly")
-def creating_account(context):
+def create_account(context):
     page = SignupPage(context)
     page.create_account("newclient@gmail.com", "491570159", "newclient12", "newclient12")
 

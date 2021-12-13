@@ -1,6 +1,7 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
 
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ES
 from pages.login_page import LoginPage
 
 
@@ -37,4 +38,6 @@ class MyConsultationsPage(LoginPage):
         self.driver.find_element(*self.send_button).click()
 
     def is_confirmation_popup_displayed(self):
-        return self.driver.find_element(*self.confirmation_popup).is_displayed()
+        wait = WebDriverWait(self.driver, 8)
+        element = wait.until(ES.presence_of_element_located(self.confirmation_popup))
+        return element.is_displayed()

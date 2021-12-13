@@ -28,24 +28,24 @@ def filling_in_form(context):
 
 
 @when("clicks on Send Assessment button")
-def clicking_send_assessment_button(context):
+def click_send_assessment_button(context):
     page = AssessmentPage(context)
     page.clicking_send_assessment_radio_button()
 
 
 @then("sees assessment completed snackbar")
-def seeing_confirmation_snackbar(context):
+def see_confirmation_snackbar(context):
     page = AssessmentPage(context)
     assert page.is_assessment_completed_snackbar_button_displayed()
 
 
 @when("clicks book now button")
-def clicking_book_now_button(context):
+def click_book_now_button(context):
     page = AssessmentPage(context)
     page.clicking_book_now_button()
 
 
 @then("is able to see book an appointment page")
-def seeing_book_an_appointment_page(context):
+def see_book_an_appointment_page(context):
     page = AssessmentPage(context)
     assert page.is_book_an_appointment_page_displayed()
