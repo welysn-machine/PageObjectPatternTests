@@ -22,10 +22,13 @@ class BasePage:
         self.how_it_works_button = (By.XPATH, "//span[text()='How it works']")
         self.faq_button = (By.XPATH, "//span[text()='FAQ']")
         self.welcome_tag = (By.XPATH, "//span[text()='Dashboard']")
-        self.twillio_popup = (By.CLASS_NAME, 'Twilio-Icon-Content')
+        self.twillio_popup = (By.CSS_SELECTOR, 'div[class^""]')
 
     def close_twillio_popup(self):
-        self.driver.find_element(*self.twillio_popup).click()
+        try:
+            self.driver.find_element(*self.twillio_popup).click()
+        except:
+            pass
 
     def clicking_book_a_consultation_button(self):
         self.driver.find_element(*self.book_a_consultation_button).click()

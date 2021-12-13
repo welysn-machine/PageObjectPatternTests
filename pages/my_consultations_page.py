@@ -10,8 +10,8 @@ class MyConsultationsPage(LoginPage):
         super().__init__(context)
 
         self.driver = context.driver
-        self.history_of_sessions = (By.CSS_SELECTOR, "5982")
-        self.first_position_in_history = (By.ID, "5982")
+        self.history_of_sessions = (By.XPATH, "//h6[text()='History']")
+        self.first_position_in_history = (By.XPATH, "//p[text()='Psychologist session']")
         self.consultation_details_page = (By.XPATH, "//h6[text()='Consultation Details']")
         self.new_message_button = (By.CSS_SELECTOR, 'div[data-testid*="new-message"]')
         self.text_message_area = (By.CSS_SELECTOR, 'textarea[name*="body"]')
@@ -22,8 +22,7 @@ class MyConsultationsPage(LoginPage):
         return self.driver.find_element(*self.history_of_sessions).is_displayed()
 
     def clicking_on_first_position_in_history(self):
-        element = self.driver.find_element(By.ID, "5982")
-        webdriver.ActionChains(self.driver).move_to_element(element).click(element)
+        self.driver.find_element(*self.first_position_in_history).click()
 
     def is_consultation_details_page_displayed(self):
         return self.driver.find_element(*self.consultation_details_page).is_displayed()

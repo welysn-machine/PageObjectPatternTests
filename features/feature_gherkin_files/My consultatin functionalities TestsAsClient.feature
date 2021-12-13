@@ -1,5 +1,5 @@
 
-Feature: User is able to use My Consulations functionalities
+Feature: User is able to use My Consultations functionalities
   User is able to see history of his sessions
   User is able to see Consultation Details Page with paid invoices
   User is able to send new message to a therapist
