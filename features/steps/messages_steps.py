@@ -59,6 +59,7 @@ def click_see_confirmation(context):
 @then('User is able to see his message in Sent Messages')
 def see_sent_message(context):
     page = MessagesPage(context)
+    page.click_sent_messages_button()
     assert page.sent_message_sent_messages_displayed()
 
 @then('User clicks delete button und is able to see his message in trash')
@@ -70,4 +71,4 @@ def click_delete_message(context):
     page.click_restore_sent_message_trash()
     page.click_sent_messages_button()
     page.sent_message_sent_messages_displayed()
-    page.click_delete_sent_messages()
+
