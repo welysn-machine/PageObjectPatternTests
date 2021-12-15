@@ -30,7 +30,7 @@ class MessagesPage(LoginPage):
         self.sent_messages_button  = (By.CSS_SELECTOR, "div[data-testid='sent']")
 
     def taken_message_displayed(self):
-        return self.driver.find_element(*self.taken_message).is_displayed
+        return self.driver.find_element(*self.taken_message).is_displayed()
 
     def delete_message_inbox(self):
         self.driver.find_element(*self.delete_button_inbox).click()
