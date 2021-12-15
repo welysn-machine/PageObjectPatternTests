@@ -1,6 +1,11 @@
-# Created by krzysztof at 15.12.2021
-Feature: # Enter feature name here
-  # Enter feature description here
 
-  Scenario: # Enter scenario name here
-    # Enter steps here
+Feature: User is able to use My Account page functionalities
+  User is able to change values in input fields in Edit Profile bookmark
+
+  Background:
+    Given User is on a My Account Page
+
+  Scenario: User is able to change values in input fields in Edit Profile bookmark
+    When User fills in input fields in a form
+    Then User clicks save changes button
+    #Then User is able to see his records
