@@ -16,7 +16,7 @@ class LoginPage(BasePage):
                                    '//p[text()="Please enter a correct email and password. Note that both fields may be case-sensitive." ]')
 
     def open_page(self):
-        self.driver.get("https://staging.welysn.com/users/login/?next=/clients/find-psychologist/")
+        self.driver.get("https://staging.welysn.com/users/login/")
 
     def log_in(self, email, password):
         self.driver.find_element(*self.email_input).send_keys(email)
