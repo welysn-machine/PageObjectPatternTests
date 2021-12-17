@@ -9,7 +9,7 @@ class BasePage:
         # left side menu locators
 
         self.dashboard_button = (By.XPATH, "//span[text()='Dashboard']")
-        self.book_consultation_button = (By.XPATH, "//span[text()='Book a consultation']")
+        self.book_consultation_button = (By.XPATH, "//p[text()='Book a consultation']")
         self.my_consultations_button = (By.XPATH, "//span[text()='My Consultations']")
         self.learning_centre_button = (By.XPATH, "//span[text()='Learning Centre']")
         self.assessments_button = (By.XPATH, "//span[text()='Assessments']")
