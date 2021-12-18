@@ -16,7 +16,7 @@ class MessagesPage(LoginPage):
         self.delete_button_inbox = (By.CSS_SELECTOR, "span[data-testid='delete-message-icon']")
         self.trash_button = (By.CSS_SELECTOR, "div[data-testid='trash']")
         self.message_trash = (By.CSS_SELECTOR, 'td[value="25/11/2021 10:39am"]')
-        self.restore_sent_message_trash = (By.CSS_SELECTOR, '//tbody/tr[1]/td[4]/div/button')
+        self.restore_sent_message_trash = (By.XPATH, '//tbody/tr[1]/td[4]/div/button')
         self.restore_inbox_message_trash = (By.XPATH, '//tbody/tr[1]/td[4]/div/button')
         self.compose_message_button = (By.CSS_SELECTOR, 'button[data-testid="add-message-fab"]')
         self.select_recipient_dropdown = (By.CSS_SELECTOR,'select[id="id-recipient"]' )
@@ -67,7 +67,7 @@ class MessagesPage(LoginPage):
         select.select_by_visible_text(recipient)
 
     def message_sent_displayed(self):
-        wait = WebDriverWait(self.driver, 7)
+        wait = WebDriverWait(self.driver, 5)
         element = wait.until(ES.presence_of_element_located(self.confirmation_sent_message))
         return element.is_displayed()
 
