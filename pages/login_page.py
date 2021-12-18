@@ -13,7 +13,7 @@ class LoginPage(BasePage):
         self.email_input = (By.ID, 'id-email')
         self.password_input = (By.ID, 'id-password')
         self.fail_login_message = (By.XPATH,
-                                   '//p[text()="Please enter a correct email and password. Note that both fields may be case-sensitive." ]')
+                                   '//p[text()="Something went wrong. Refresh the page or try again later." ]')
 
     def open_page(self):
         self.driver.get("https://staging.welysn.com/users/login/")
