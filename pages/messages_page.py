@@ -24,9 +24,9 @@ class MessagesPage(LoginPage):
         self.subject_input_field = (By.CSS_SELECTOR, 'input[id="id-subject"]')
         self.body_input_field = (By.CSS_SELECTOR,'textarea[name="body"]')
         self.confirmation_sent_message = (By.XPATH, "//div[text()='Message sent']")
-        self.sent_message_in_sent_messages = (By.CSS_SELECTOR, "td[value='Problems']")
+        self.sent_message_in_sent_messages = (By.CSS_SELECTOR, "tr[index='0']>td[value='Problems']")
         self.delete_button_sent_messages = (By.CSS_SELECTOR, "span[data-testid='delete-message-icon']")
-        self.sent_message_trash = (By.CSS_SELECTOR, "td[value='Problems']")
+        self.sent_message_trash = (By.CSS_SELECTOR, "tr[index='0']>td[value='Problems']")
         self.sent_messages_button  = (By.CSS_SELECTOR, "div[data-testid='sent']")
 
     def taken_message_displayed(self):
