@@ -14,6 +14,7 @@ def log_in_account(context):
 def click_book_consultation_button(context):
     page = BookConsultationPage(context)
     page.click_book_consultation_button()
+    page.click_book_psychologist_button()
 
 
 @when("User choose available Therapist from list using book button")

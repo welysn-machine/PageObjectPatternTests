@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ES
+from selenium.webdriver.support.wait import WebDriverWait
+
 from pages.login_page import LoginPage
 
 

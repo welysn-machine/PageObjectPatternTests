@@ -194,9 +194,11 @@ class MyAccountPage(LoginPage):
         assert medicare_number == text
 
     def aboriginal_or_torres_get_attribute(self, text):
-        aboriginal_torres_selected = self.driver.find_element(*self.aboriginal_or_torres_input_account_value_no).is_selected()
-        assert aboriginal_torres_selected == True
-        aboriginal_torres_text = self.driver.find_element(*self.aboriginal_or_torres_input_account_value_no).get_attribute("value")
+        aboriginal_torres_selected = self.driver.find_element(
+            *self.aboriginal_or_torres_input_account_value_no).is_selected()
+        assert aboriginal_torres_selected
+        aboriginal_torres_text = self.driver.find_element(
+            *self.aboriginal_or_torres_input_account_value_no).get_attribute("value")
         assert aboriginal_torres_text == text
 
     def next_kin_number_get_attribute(self, text):

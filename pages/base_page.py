@@ -10,6 +10,10 @@ class BasePage:
 
         self.dashboard_button = (By.XPATH, "//span[text()='Dashboard']")
         self.book_consultation_button = (By.XPATH, "//p[text()='Book a consultation']")
+        self.book_psychologist_button = (By.XPATH, "//span[text()='Book a Psychologist']")
+        self.book_coach_button = (By.XPATH, "//span[text()='Book a Coach']")
+        self.book_manager_assistance = (By.XPATH, "//span[text()='Book Manager Assistance']")
+        self.book_dietitian_button = (By.XPATH, "//span[text()='Book a Dietitian']")
         self.my_consultations_button = (By.XPATH, "//span[text()='My Consultations']")
         self.learning_centre_button = (By.XPATH, "//span[text()='Learning Centre']")
         self.assessments_button = (By.XPATH, "//span[text()='Assessments']")
@@ -32,6 +36,18 @@ class BasePage:
 
     def click_book_consultation_button(self):
         self.driver.find_element(*self.book_consultation_button).click()
+
+    def click_book_psychologist_button(self):
+        self.driver.find_element(*self.book_psychologist_button).click()
+
+    def click_book_coach_button(self):
+        self.driver.find_element(*self.book_coach_button).click()
+
+    def click_book_manager_assistance_button(self):
+        self.driver.find_element(*self.book_manager_assistance).click()
+
+    def click_book_dietitian_button(self):
+        self.driver.find_element(*self.book_dietitian_button).click()
 
     def click_my_consultations_button(self):
         self.driver.find_element(*self.my_consultations_button).click()
