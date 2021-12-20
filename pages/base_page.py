@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
-
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ES
 
 class BasePage:
 
@@ -50,6 +51,7 @@ class BasePage:
         self.driver.find_element(*self.book_dietitian_button).click()
 
     def click_my_consultations_button(self):
+
         self.driver.find_element(*self.my_consultations_button).click()
 
     def click_dashboard_button(self):
@@ -62,7 +64,9 @@ class BasePage:
         self.driver.find_element(*self.assessments_button).click()
 
     def click_messages_button(self):
-        self.driver.find_element(*self.messages_button).click()
+        wait = WebDriverWait(self.driver, 6)
+        element = wait.until(ES.presence_of_element_located(self.messages_button))
+        element.click()
 
     def click_wellbeing_tracker_button(self):
         self.driver.find_element(*self.wellbeing_tracker_button).click()

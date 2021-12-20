@@ -39,5 +39,5 @@ class MyConsultationsPage(LoginPage):
 
     def confirmation_popup_displayed(self):
         wait = WebDriverWait(self.driver, 8)
-        element = wait.until(ES.presence_of_element_located(self.confirmation_popup))
+        element = wait.until(ES.visibility_of_element_located(self.confirmation_popup))
         return element.is_displayed()

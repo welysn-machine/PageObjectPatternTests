@@ -5,8 +5,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 @capture
 def before_scenario(context,scenario):
     context.driver = webdriver.Chrome(ChromeDriverManager().install())
-    context.driver.implicitly_wait(10)
-    context.driver.set_page_load_timeout(20)
+    context.driver.implicitly_wait(30)
+    context.driver.set_page_load_timeout(30)
     context.driver.maximize_window()
 
 

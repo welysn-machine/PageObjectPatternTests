@@ -24,9 +24,9 @@ class MessagesPage(LoginPage):
         self.subject_input_field = (By.CSS_SELECTOR, 'input[id="id-subject"]')
         self.body_input_field = (By.CSS_SELECTOR, 'textarea[name="body"]')
         self.confirmation_sent_message = (By.XPATH, "//div[text()='Message sent']")
-        self.sent_message_in_sent_messages = (By.CSS_SELECTOR, "tr[index='0']>td[value='Problems']")
+        self.sent_message_in_sent_messages = (By.CSS_SELECTOR, "td[value='Problems']")
         self.delete_button_sent_messages = (By.CSS_SELECTOR, "td[value='Problems']~td>div>button[title='Delete message']")
-        self.sent_message_trash = (By.CSS_SELECTOR, "tr[index='0']>td[value='Problems']")
+        self.sent_message_trash = (By.CSS_SELECTOR, "td[value='Problems']")
         self.sent_messages_button = (By.CSS_SELECTOR, "div[data-testid='sent']")
         self.sent_messages_page = (By.CSS_SELECTOR, "h6[data-testid='section-title']")
 
@@ -80,7 +80,9 @@ class MessagesPage(LoginPage):
         return element.is_displayed()
 
     def sent_message_sent_messages_displayed(self):
-        return self.driver.find_element(*self.sent_message_in_sent_messages).is_displayed()
+        wait = WebDriverWait(self.driver, 4)
+        element = wait.until(ES.visibility_of_element_located(self.sent_message_in_sent_messages))
+        return element.is_displayed()
 
     def click_delete_sent_messages(self):
         self.driver.find_element(*self.delete_button_sent_messages).click()
