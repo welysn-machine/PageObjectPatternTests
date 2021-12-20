@@ -9,7 +9,7 @@ class AssessmentPage(LoginPage):
         super().__init__(context)
 
         self.begin_assessment_radio_button_rcads_child = (
-        By.CSS_SELECTOR, "button[data-testid*='begin-assessment-RCADS-Child']")
+            By.CSS_SELECTOR, "button[data-testid*='begin-assessment-RCADS-Child']")
         self.worry_about_things_radio_button = (By.CSS_SELECTOR, "input[name*='251'][value*='Always']")
         self.feel_sad_or_empty_radio_button = (By.CSS_SELECTOR, "input[name*='252'][value='Always']")
         self.nothing_is_fun_anymore_radio_button = (By.CSS_SELECTOR, "input[name*='256'][value='Always']")
