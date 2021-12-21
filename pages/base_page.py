@@ -50,6 +50,7 @@ class BasePage:
         self.driver.find_element(*self.book_dietitian_button).click()
 
     def click_my_consultations_button(self):
+
         self.driver.find_element(*self.my_consultations_button).click()
 
     def click_dashboard_button(self):
