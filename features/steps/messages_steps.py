@@ -81,3 +81,22 @@ def click_delete_message(context):
     page.click_delete_sent_messages()
     page.click_trash_button()
     assert page.sent_message_trash_displayed()
+
+@then("User clicks send button")
+def click_send_button(context):
+    page = MessagesPage(context)
+    page.click_send_button()
+
+@then("User is able to see a reply in inbox")
+def see_message_inbox(context):
+    page = MessagesPage(context)
+    page.open_page()
+    page.log_in("jonathan+psych@lysnhealth.com.au", "123lysn123")
+    page.click_messages_button()
+
+@then('User select recipient, fills in subject field and body field with reply from therapist')
+def fills_in_required_fields(context):
+    page = MessagesPage(context)
+    page.select_recipient("Jonathan King Therapist")
+    page.fill_in_subject_field("Another problems")
+    page.fill_in_body_field("Big problem")

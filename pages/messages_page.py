@@ -32,7 +32,9 @@ class MessagesPage(LoginPage):
         self.sent_message_trash = (By.CSS_SELECTOR, "td[value='Problems']")
         self.sent_messages_button = (By.CSS_SELECTOR, "div[data-testid='sent']")
         self.sent_messages_page = (By.CSS_SELECTOR, "h6[data-testid='section-title']")
-
+        self.therapist_inbox_subject_message = (By.CSS_SELECTOR, "td[value='Another problem']")
+        self.therapist_reply_button = (By.XPATH, '//span[text()="Reply"]')
+        self.therapist_textarea = (By.XPATH, '//textarea[text()= "Jonathan King wrote:> Really big problem "]')
     def taken_message_displayed(self):
         return self.driver.find_element(*self.taken_message).is_displayed()
 
@@ -94,3 +96,15 @@ class MessagesPage(LoginPage):
 
     def click_sent_messages_button(self):
         self.driver.find_element(*self.sent_messages_button).click()
+
+    def therapist_subject_inbox_click(self):
+        self.driver.find_element(*self.therapist_inbox_subject_message).click()
+
+    def therapist_reply_button_click(self):
+        self.driver.find_element(*self.therapist_reply_button).click()
+
+    def therapist_textarea_fill_in(self):
+        self.driver.find_element(*self.therapist_textarea).send_keys("I cannot help you")
+
+
+
