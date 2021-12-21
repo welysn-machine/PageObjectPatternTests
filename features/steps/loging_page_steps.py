@@ -21,8 +21,8 @@ def log_in_account(context):
 def see_main_page(context):
     page = LoginPage(context)
     wait = WebDriverWait(context.driver, 8)
-    element = wait.until(ES.presence_of_element_located(page.welcome_tag))
-    assert element
+    welcome_tag = wait.until(ES.presence_of_element_located(page.welcome_tag))
+    assert welcome_tag
 
 
 @when("User fills in password input field with invalid password")
@@ -35,5 +35,5 @@ def fills_in_invalid_password(context):
 def see_error_message(context):
     page = LoginPage(context)
     wait = WebDriverWait(context.driver, 4)
-    element = wait.until(ES.presence_of_element_located(page.fail_login_message))
-    assert element
+    fail_login_message = wait.until(ES.presence_of_element_located(page.fail_login_message))
+    assert fail_login_message

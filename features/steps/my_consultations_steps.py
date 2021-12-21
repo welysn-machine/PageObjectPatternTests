@@ -51,14 +51,12 @@ def open_consultation_details_page(context):
 @then("clicks on new message button")
 def click_new_message_button(context):
     page = MyConsultationsPage(context)
-
     page.click_new_message_button()
 
 
 @then("types in a information to a psychologist")
 def type_message(context):
     page = MyConsultationsPage(context)
-
     page.type_message("Hello")
 
 

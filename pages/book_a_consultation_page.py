@@ -43,8 +43,8 @@ class BookConsultationPage(LoginPage):
 
     def book_consultation(self):
         wait = WebDriverWait(self.driver, 8)
-        element = wait.until(ES.visibility_of_element_located(self.book_button_confirm_booking))
-        element.click()
+        confirm_booking = wait.until(ES.visibility_of_element_located(self.book_button_confirm_booking))
+        confirm_booking.click()
 
     def confirm_consultation_displayed(self):
         return self.driver.find_element(*self.confirmation_page).is_displayed()
@@ -53,9 +53,9 @@ class BookConsultationPage(LoginPage):
         self.driver.find_element(*self.filter_option).click()
 
     def select_filter_options(self):
-        element = self.driver.find_element(*self.need_help_with_select_filter_options)
-        action = ActionChains(self.driver).move_to_element(element).click()
-        element.send_keys("Fears", Keys.ENTER)
+        need_help_select = self.driver.find_element(*self.need_help_with_select_filter_options)
+        action = ActionChains(self.driver).move_to_element(need_help_select).click()
+        need_help_select.send_keys("Fears", Keys.ENTER)
 
     def click_update_button(self):
         self.driver.find_element(*self.update_filter_button).click()
@@ -65,5 +65,5 @@ class BookConsultationPage(LoginPage):
 
     def available_therapist_information_displayed(self):
         wait = WebDriverWait(self.driver, 4)
-        element = wait.until(ES.presence_of_element_located(self.available_therapists_information))
-        return element.is_displayed()
+        available_therapists = wait.until(ES.presence_of_element_located(self.available_therapists_information))
+        return available_therapists.is_displayed()
