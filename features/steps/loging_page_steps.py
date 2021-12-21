@@ -20,7 +20,7 @@ def log_in_account(context):
 @then("User logs in to his account")
 def see_main_page(context):
     page = LoginPage(context)
-    wait = WebDriverWait(context.driver, 4)
+    wait = WebDriverWait(context.driver, 8)
     element = wait.until(ES.presence_of_element_located(page.welcome_tag))
     assert element
 

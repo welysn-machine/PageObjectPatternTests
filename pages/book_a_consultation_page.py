@@ -42,7 +42,7 @@ class BookConsultationPage(LoginPage):
         self.driver.find_element(*self.available_time).click()
 
     def book_consultation(self):
-        wait = WebDriverWait(self.driver, 4)
+        wait = WebDriverWait(self.driver, 8)
         element = wait.until(ES.visibility_of_element_located(self.book_button_confirm_booking))
         element.click()
 

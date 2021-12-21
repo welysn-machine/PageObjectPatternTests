@@ -64,9 +64,7 @@ class BasePage:
         self.driver.find_element(*self.assessments_button).click()
 
     def click_messages_button(self):
-        wait = WebDriverWait(self.driver, 6)
-        element = wait.until(ES.presence_of_element_located(self.messages_button))
-        element.click()
+        self.driver.find_element(*self.messages_button).click()
 
     def click_wellbeing_tracker_button(self):
         self.driver.find_element(*self.wellbeing_tracker_button).click()
