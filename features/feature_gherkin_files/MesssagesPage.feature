@@ -2,6 +2,7 @@ Feature: User is able to use Messages functionalities
   User is able to see messages in Inbox, delete it and restore
   User is able to write and send a message
   User is able to see sent message in Sent Messages, delete it and restore
+  User is able to send a message to a therapist and get a reply
 
   Background:
     Given User is on Messages Page
@@ -27,3 +28,8 @@ Feature: User is able to use Messages functionalities
     Then User clicks restore sent messages button
     Then User is able to see his message in sent messages
 
+  Scenario: User is able to send a message to a therapist and get a reply
+    When User is on Compose Message page
+    Then User select recipient, fills in subject field, body field and click send button
+    Then Therapist sends answer
+    Then User is able to see answer in inbox

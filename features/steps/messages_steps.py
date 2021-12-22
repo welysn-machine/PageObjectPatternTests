@@ -81,3 +81,40 @@ def click_delete_message(context):
     page.click_delete_sent_messages()
     page.click_trash_button()
     assert page.sent_message_trash_displayed()
+
+
+@then("Therapist sends answer")
+def see_message_inbox(context):
+    page = MessagesPage(context)
+    page.open_page()
+    page.log_in("jonathan+psych@lysnhealth.com.au", "123lysn123")
+    page.click_messages_button()
+    page.therapist_subject_inbox_click()
+    page.therapist_reply_button_click()
+    page.therapist_textarea_fill_in("I cannot help you")
+    page.click_send_button()
+    page.click_logout_button()
+
+
+@then('User select recipient, fills in subject field, body field and click send button')
+def fills_in_required_fields(context):
+    page = MessagesPage(context)
+    page.select_recipient("Jonathan King Therapist")
+    page.fill_in_subject_field("Another problems")
+    page.fill_in_body_field("Big problem")
+    page.click_send_button()
+    page.click_logout_button()
+
+
+@when("User is on Compose Message page")
+def open_compose_message_page(context):
+    page = MessagesPage(context)
+    page.click_compose_message_button()
+
+
+@then("User is able to see answer in inbox")
+def received_message_inbox(context):
+    page = MessagesPage(context)
+    page.log_in("jonathan+client@lysnhealth.com.au", "123lysn123")
+    page.click_messages_button()
+    assert page.new_message_therapist_displayed()
