@@ -10,6 +10,9 @@ Feature: User as a client is able to book a consultation
     When  User choose payment type, consultation type, length of consultation
     When  User choose Date and Time of consultation
     Then  User is able to book a consultation using book button and sees confirmation page
+    Then  User i able to see booked consultation in My Consultations Page
+    Then  Therapist is able to see new booking in Consultations Page
+
 
   Scenario: User is able to use filter options
     When  Clicks on filter menu

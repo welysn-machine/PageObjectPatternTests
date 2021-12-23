@@ -27,10 +27,17 @@ class BasePage:
         self.faq_button = (By.XPATH, "//span[text()='FAQ']")
         self.welcome_tag = (By.XPATH, "//span[text()='Dashboard']")
         self.twillio_popup = (By.CSS_SELECTOR, 'div[class^""]')
+        self.redeem_coupon_popup = (By.XPATH, '//span[text()="No thanks. I don\'t have a coupon"]')
 
     def close_twillio_popup(self):
         try:
             self.driver.find_element(*self.twillio_popup).click()
+        except:
+            pass
+
+    def close_redeem_coupon_popup(self):
+        try:
+            self.driver.find_element(*self.redeem_coupon_popup).click()
         except:
             pass
 

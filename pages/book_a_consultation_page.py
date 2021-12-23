@@ -18,8 +18,10 @@ class BookConsultationPage(LoginPage):
         self.available_dates = (By.CSS_SELECTOR, "div[data-date='20211231']")
         self.available_time = (By.CLASS_NAME, "timeslots-picker__cell")
         self.book_button_confirm_booking = (By.XPATH, "//span[text()='BOOK']")
+        self.book_pay_button_confirm_booking = (By.XPATH, "//span[text()='BOOK & PAY']")
         self.confirmation_page = (
-            By.XPATH, "//span[text()='BOOK']")
+            By.XPATH, "//div[text()='Your booking is confirmed, please take a moment to prepare for your session.']")
+        self.my_consultations_booked_visit = (By.XPATH, "//p[text()= 'Fri 31 Dec 12:00AM']")
         self.available_therapists_information = (By.CSS_SELECTOR, "img[alt= 'Profile image']")
         self.filter_option = (By.XPATH, "//span[text()='Filters']")
         self.need_help_with_select_filter_options = (
@@ -27,6 +29,7 @@ class BookConsultationPage(LoginPage):
         self.fears_and_phobias_select_option = (By.XPATH, "//div[text()='Fears & Phobias']")
         self.update_filter_button = (By.XPATH, "//span[text()='Update']")
         self.fears_and_phobias_button = (By.XPATH, "//span[text()='Fears & Phobias']")
+        self.dont_apply_coupon_button = (By.XPATH, '//span[text()="don\'t apply coupon"]')
 
     def click_book_button_available_therapist(self):
         self.driver.find_element(*self.book_button_list_of_available_therapists).click()
@@ -40,6 +43,11 @@ class BookConsultationPage(LoginPage):
     def set_date_time(self):
         self.driver.find_element(*self.available_dates).click()
         self.driver.find_element(*self.available_time).click()
+
+    def book_pay_consultation(self):
+        wait = WebDriverWait(self.driver, 8)
+        confirm_booking = wait.until(ES.visibility_of_element_located(self.book_pay_button_confirm_booking))
+        confirm_booking.click()
 
     def book_consultation(self):
         wait = WebDriverWait(self.driver, 8)
@@ -67,3 +75,9 @@ class BookConsultationPage(LoginPage):
         wait = WebDriverWait(self.driver, 4)
         available_therapists = wait.until(ES.presence_of_element_located(self.available_therapists_information))
         return available_therapists.is_displayed()
+
+    def click_dont_apply_coupon(self):
+        self.driver.find_element(*self.dont_apply_coupon_button).click()
+
+    def booked_consultation_displayed(self):
+        return self.driver.find_element(*self.my_consultations_booked_visit).is_displayed()

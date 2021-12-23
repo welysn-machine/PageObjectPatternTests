@@ -39,8 +39,24 @@ def choose_date_time(context):
 @then("User is able to book a consultation using book button and sees confirmation page")
 def book_consultation(context):
     page = BookConsultationPage(context)
-    page.book_consultation()
+    page.click_dont_apply_coupon()
+    page.book_pay_consultation()
     assert page.confirm_consultation_displayed()
+
+
+@then("User i able to see booked consultation in My Consultations Page")
+def booked_consultation_displayed_client(context):
+    page = BookConsultationPage(context)
+    page.click_my_consultations_button()
+    assert page.booked_consultation_displayed()
+    page.click_logout_button()
+
+
+@then("Therapist is able to see new booking in Consultations Page")
+def booked_consultation_displayed_therapist(context):
+    page = BookConsultationPage(context)
+    page.log_in("jonathan+psych@lysnhealth.com.au", "123lysn123")
+    assert page.booked_consultation_displayed()
 
 
 @when("User is able to see list with available therapists")
