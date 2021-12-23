@@ -22,6 +22,7 @@ class LoginPage(BasePage):
         self.driver.find_element(*self.email_input).send_keys(email)
         self.driver.find_element(*self.password_input).send_keys(password)
         self.driver.find_element(*self.log_in_button).click()
+        self.close_redeem_coupon_popup()
 
     def get_error_msg_fail_login(self):
         return self.driver.find_element(*self.fail_login_message).text
